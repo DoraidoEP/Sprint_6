@@ -37,16 +37,11 @@ class MainPage(BasePage):
     def check_displaying_of_main_header(self):
         return self.check_displaying_of_element(MainPageLocators.main_header)
 
-    @allure.step('Скролл до секции "Вопросы о важном"')
-    def scroll_to_faq_section(self):
+
+    @allure.step('Скролл и клик по нужному номеру вопроса в разделе "Вопросы о важнoм"')
+    def scroll_and_click_on_faq_items(self, data):
         self.scroll_to_element(MainPageLocators.faq_section)
-
-    @allure.step('Ожидание загрузки нужного номера вопроса в разделе "Вопросы о важнoм"')
-    def wait_visibility_of_faq_items(self, data):
         self.wait_visibility_of_element(MainPageLocators.faq_questions_items[data])
-
-    @allure.step('Клик по нужному номеру вопроса в разделе "Вопросы о важнoм"')
-    def click_on_faq_items(self, data):
         self.click_on_element(MainPageLocators.faq_questions_items[data])
 
     @allure.step('Ожидание загрузки нужного номера ответа в разделе "Вопросы о важнoм"')

@@ -7,7 +7,7 @@ from data import TestData
 class OrderPage(BasePage):
 
     @allure.step('Заполнение первой части формы и нажатие кнопки "Далее"')
-    def data_entry_first_form(self, test_data: object) -> object:
+    def enter_user_data_first_form(self, test_data: object) -> object:
         self.wait_visibility_of_element(OrderPageLocators.name)
         self.click_on_element(OrderPageLocators.name)
         self.send_keys_to_input(OrderPageLocators.name, test_data[0])
@@ -23,7 +23,7 @@ class OrderPage(BasePage):
         self.click_on_element(OrderPageLocators.button_next)
 
     @allure.step('Заполнение второй части формы и окна подтверждения')
-    def data_entry_second_form(self, test_data):
+    def enter_user_data_second_form(self, test_data):
         self.wait_visibility_of_element(OrderPageLocators.date)
         self.click_on_element(OrderPageLocators.date)
         self.send_keys_to_input(OrderPageLocators.date, test_data[5])
@@ -51,3 +51,4 @@ class OrderPage(BasePage):
     @allure.step('Проверка отображения кнопки "Посмотреть статус" после создания заказа')
     def check_displaying_of_button_check_status_of_order(self):
         return self.check_displaying_of_element(OrderPageLocators.button_check_status_of_order)
+
